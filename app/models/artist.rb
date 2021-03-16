@@ -9,10 +9,11 @@ class Artist < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-         first = slug.split("-")
-         first.join(" ").titlecase
-        
-        binding.pry
+       
+         first = slug.split("-").join(" ").titlecase
+         
+         self.find_by(name: first)
+       
 
     end
 
